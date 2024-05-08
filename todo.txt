@@ -1,0 +1,7 @@
+* Too much yellow
+* Put the pizza in smaller boxes
+[*] add some pictures
+* Move the pizza text to the centre
+[*]add space around the pizza text
+* add rounded border to the pizza blocks
+* look at the pizza text
