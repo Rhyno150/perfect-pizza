@@ -32,7 +32,11 @@ min-height: 30em;  */
 }
 
 .small_pizza {
+<<<<<<< HEAD
  background-color: #EE5622; 
+=======
+ background-color: #FD3E81; 
+>>>>>>> fb2e4b17a213faa5fc9bbb2e33ee76ba5293be80
     flex: 1
 }
 
