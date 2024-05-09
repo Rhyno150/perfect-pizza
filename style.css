@@ -22,7 +22,7 @@ min-height: 30em;  */
 }
 
 .medium_pizza {
-  background-color: #E3B505;
+  background-color: #447604;
    flex: 2
 }
 
@@ -32,7 +32,7 @@ min-height: 30em;  */
 }
 
 .small_pizza {
- background-color: #610345; 
+ background-color: #823329; 
     flex: 1
 }
 
