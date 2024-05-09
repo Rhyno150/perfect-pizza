@@ -1,5 +1,5 @@
 body {
-  background-color: #E3B505;
+  background-color: #FED0BB;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
@@ -23,21 +23,23 @@ min-height: 30em;  */
 
 .medium_pizza {
   background-color: #447604;
-   flex: 2
+   flex: 1
 }
 
 .Large_pizza { 
   background-color: #FD3E81;
-    flex: 2
+    flex: 1
 }
 
 .small_pizza {
- background-color: #020887; 
+ background-color: #EE5622; 
     flex: 1
 }
 
 .contact_us {
-     background-color: cornflowerblue;
+     background-color: #ECFFF8; 
+
+     
 
 
 }
@@ -65,12 +67,13 @@ min-height: 30em;  */
 @media (min-width: 960px) {
 /* apply this css if the page is wider than 960px */
  /* body{
-    background-color:  #fff;
+    background-color:  #fff; */
   
-} */
-
-.pizzas {
+    .pizzas {
   display: flex;
 }
+} 
 
-}
+
+
+
