@@ -1,5 +1,5 @@
 body {
-  background-color: #FED0BB;
+  background-color: yellow;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
@@ -22,26 +22,25 @@ min-height: 30em;  */
 }
 
 .medium_pizza {
-  background-color: #447604;
+  background-color: #29BF12;
    flex: 1
 }
 
 .Large_pizza { 
-  background-color: #FD3E81;
+  background-color: #BA5A31;
     flex: 1
 }
 
 .small_pizza {
-<<<<<<< HEAD
  background-color: #EE5622; 
-=======
+
  background-color: #FD3E81; 
->>>>>>> fb2e4b17a213faa5fc9bbb2e33ee76ba5293be80
+ fb2e4b17a213faa5fc9bbb2e33ee76ba5293be80
     flex: 1
 }
 
 .contact_us {
-     background-color: #ECFFF8; 
+     background-color: #01BAEF; 
 
      
 
