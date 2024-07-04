@@ -1,5 +1,5 @@
 body {
-  background-color: yellow;
+  background-color: blue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
@@ -7,7 +7,7 @@ body {
 
 .pizza {
 /* border model */
-border: 1px solid gainsboro;
+border: 1px solid orange;
 padding: 1em;
 margin: 1em;
 /* margin-left: 0em; */
@@ -35,12 +35,11 @@ min-height: 30em;  */
  background-color: #EE5622; 
 
  background-color: #FD3E81; 
- fb2e4b17a213faa5fc9bbb2e33ee76ba5293be80
     flex: 1
 }
 
 .contact_us {
-     background-color: #01BAEF; 
+     background-color: yellow; 
 
      
 
