@@ -1,0 +1,46 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Cart</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/alpine.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+        <!-- Menu Items -->
+        <div x-cloak>
+            <h2>Menu</h2>
+            <div x-for="pizza in pizzas" :key="pizza.id">
+                <h3>{{ pizza.name }} - {{ pizza.size }} (${{ pizza.price }})</h3>
+                <button @click="addToCart(pizza)">Order</button>
+            </div>
+        </div>
+        
+        <!-- Cart -->
+        <div x-cloak>
+            <h2>Shopping Cart</h2>
+            <template x-if="cart.length > 0">
+                <ul>
+                    <template x-for="(item, index) in cart" :key="index">
+                        <li>{{ item.name }} - {{ item.size }} x{{ item.quantity }} - ${{ item.price * item.quantity }}
+                            <button @click="removeFromCart(index)">Remove</button>
+                        </li>
+                    </template>
+                </ul>
+                <p>Total Small Pizzas: {{ cart.filter(item => item.size === 'Small').length }}</p>
+                <p>Total Medium Pizzas: {{ cart.filter(item => item.size === 'Medium').length }}</p>
+                <p>Total Large Pizzas: {{ cart.filter(item => item.size === 'Large').length }}</p>
+                <p>Total Cost: ${{ cart.reduce((acc, item) => acc + (item.price * item.quantity), 0) }}</p>
+                <button @click="checkout()">Checkout</button>
+            </template>
+            <template x-if="cart.length === 0">
+                <p>Your cart is empty.</p>
+            </template>
+        </div>
+    </div>
+</body>
+</html>
+

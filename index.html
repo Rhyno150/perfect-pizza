@@ -1,57 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfect Pizza</title>
-    <link rel="stylesheet" href="style.css">  
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Pizza</title>
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- <script src="cart.js"></script>    -->
+  <!-- <script src="index.html" defer></script>  -->
+
+  <head>
+
+  </head>
+
+
+
 <body>
- 
-<h1>Perfect Pizza</h1>
-<div class="pizzas">
+  <!-- <script  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>  -->
+
+  <div x-data="{ pizza: null }">
+
+
+
+    <div x-data="{ 
+      cart: {},  // Object to store cart items (small, medium, large arrays)
+      totalSmall: 0, 
+      totalMedium: 0, 
+      totalLarge: 0, 
+      totalPrice: 0, 
+      checkoutModal: false, // Flag to show/hide checkout modal
+      paymentAmount: 0,  // User's entered payment amount
+      paymentMessage: '', // Message displayed after checkout
+      paymentSuccess: false  // Flag for successful payment
+  }">
+
+      <h2>Pizza Cart</h2>
+      <ul>
+        <li x-for="pizza in cart.small" :key="pizza.id">
+          Small Pizza (R{{ pizza.price }})
+          <button @click="removeFromCart('small', pizza.id)">Remove</button>
+        </li>
+        <li x-for="pizza in cart.medium" :key="pizza.id">
+          Medium Pizza (R{{ pizza.price }})
+          <button @click="removeFromCart('medium', pizza.id)">Remove</button>
+        </li>
+        <li x-for="pizza in cart.large" :key="pizza.id">
+          Large Pizza (R{{ pizza.price }})
+          <button @click="removeFromCart('large', pizza.id)">Remove</button>
+        </li>
+      </ul>
+
+      <p>Small: R{{ totalSmall }}</p>
+      <p>Medium: R{{ totalMedium }}</p>
+      <p>Large: R{{ totalLarge }}</p>
+      <p>Total: R{{ totalPrice }}</p>
+
+      <button x-show="Object.keys(cart).length > 0" @click="checkout">Check Out</button>
+
+      <div x-show="checkoutModal" x-cloak>
+        <h2>Enter Payment Amount</h2>
+        <input type="number" v-model="paymentAmount">
+        <button @click="processPayment">Pay</button>
+        <div x-show="paymentMessage" :class="{ 'success': paymentSuccess, 'error': !paymentSuccess }">
+          {{ paymentMessage }}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+
+
+
+
+  <h1>Perfect Pizza</h1>
+  <div class="pizzas">
     <div class="pizza small_pizza">
-        <h2>Small Pizza</h2>
-        <img src="pizza one.png" width="75">
-       <h3>R49.00</h3>
-        <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span> Ut enim ad minim veniam  </span>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-        </div>
-        </div>
-    
+      <h2>Small Pizza</h2>
+      <img src="pizza.png" width="125">
+      <h3>R49.00</h3>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. <span> Ut enim ad minim veniam </span>, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat
+      </div>
+    </div>
+
     <div class="pizza medium_pizza">
-    <h2>Medium Pizza</h2>
-    <img src="pizza one.png" width="125">
-    <h3>R89.00</h3>
-    <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+      <h2>Medium Pizza</h2>
+      <img src="pizza.png" width="155">
+      <h3>R89.00</h3>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat
+      </div>
     </div>
-    </div>
-    
+
     <div class="pizza Large_pizza">
-    <h2>Large Pizza</h2>
-    <img src="pizza one.png" width="175">
-     <h3>R129.00</h3>
-     <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+      <h2>Large Pizza</h2>
+      <img src="pizza.png" width="175">
+      <h3>R129.00</h3>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat
+      </div>
     </div>
-    </div>
-    
-    </div>
-</div>
+
+  </div>
+  </div>
 
 
 
 
 
-<div class="pizza contact_us ">
- <h2>Contact details</h2>
+  <div class="pizza contact_us ">
+    <h2>Contact details</h2>
 
-    Contact us at: 011 340 1231 info@perfect-pizza.co.za        
-    
-</div>
+    Contact us at: 011 340 1231 info@perfect-pizza.co.za
 
 
+  </div>
 
+
+  <script src="cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="https://unpkg.com/alpinejs"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
+
 </html>
